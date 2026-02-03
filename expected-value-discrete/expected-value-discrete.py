@@ -12,7 +12,9 @@ def expected_value_discrete(x, p):
     if not np.allclose(sum(p) , 1.0 , atol=1e-6):
         raise ValueError("probabilites not sum up to 1")
     
-    
-    sums = np.sum(x*p)
+    n = x.shape[0]
+    sums = 0 
+    for i in range(n):
+        sums += x[i]*p[i]
     return float(sums)
     pass
